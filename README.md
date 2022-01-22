@@ -31,13 +31,11 @@ let client = createClient(
 
 client->connect
 
-client->on(
-  #message(
-    (channel, tags, message, self) => {
-      if !self && message->Js.String2.toLocaleLowerCase == "!hello" {
-        client->say(channel, `@${tags["username"]}, heya!`)
-      }
-    },
-  ),
-)
+let onMessageHandler = (channel, tags, message, self) => {
+  if !self && message->Js.String2.toLocaleLowerCase == "!hello" {
+    client->say(channel, `@${tags["username"]}, heya!`)
+  }
+}
+
+client->on(#message(onMessageHandler))
 ```
