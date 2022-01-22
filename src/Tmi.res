@@ -65,3 +65,15 @@ external makeOptions: (
 @module("tmi.js") @new external createClient: options => t = "Client"
 
 @send external connect: t => unit = "connect"
+
+@send
+external on: (
+  t,
+  @string
+  [
+    | #message((string, 'channel_userstate, string, bool) => unit)
+  ],
+) => unit = "on"
+
+@send
+external say: (t, string, string) => unit = "say"
