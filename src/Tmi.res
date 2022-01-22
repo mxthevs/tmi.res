@@ -71,7 +71,7 @@ external on: (
   t,
   @string
   [
-    | #message((string, 'channel_userstate, string, bool) => unit)
+    | #message((string, Tmi_User.chat_userstate, string, bool) => unit)
   ],
 ) => unit = "on"
 
