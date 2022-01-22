@@ -1,5 +1,7 @@
 # tmi.res
 
+> ⚠️ **DISCLAIMER**: This library is not complete yet. But it has the basic bindings to get a chatbot up and running.
+
 ## Install
 
 ```console
