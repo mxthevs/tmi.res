@@ -1,0 +1,34 @@
+{
+  "name": "tmi.res",
+  "version": "0.0.1",
+  "description": "ReScript bindings for tmi.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxthevs/tmi.res.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mxthevs/tmi.res/issues"
+  },
+  "homepage": "https://github.com/mxthevs/tmi.res#readme",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "tmi",
+    "tmi.js",
+    "twitch",
+    "chat",
+    "bot"
+  ],
+  "scripts": {
+    "rescript:build": "rescript build -with-deps",
+    "rescript:start": "rescript build -w",
+    "rescript:clean": "rescript clean",
+    "rescript:format": "rescript format"
+  },
+  "dependencies": {
+    "rescript": "9.1.4"
+  },
+  "peerDependencies": {
+    "tmi.js": "1.8.5"
+  }
+}
