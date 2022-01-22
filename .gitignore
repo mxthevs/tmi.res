@@ -26,3 +26,4 @@ lib/js
 .merlin
 .bsb.lock
 /node_modules/
+/src/Examples.res
