@@ -64,12 +64,60 @@ external makeOptions: (
 
 @module("tmi.js") @new external createClient: options => t = "Client"
 
+open Tmi_Userstate
+
 @send
 external on: (
   t,
   @string
   [
-    | #message((string, Tmi_User.chat_userstate, string, bool) => unit)
+    | #action((string, chat_message, string, bool) => unit)
+    | #anongiftpaidupgrade((string, string, anon_subgift_upgrade) => unit)
+    | #anonsubmysterygift((string, int, Tmi_Subs.methods, anon_sub_mysterygift) => unit)
+    | #anonsubgift((string, int, string, Tmi_Subs.methods, anon_sub_gift) => unit)
+    | #automod((string, [#msg_rejected | #msg_rejected_mandatory], string) => unit)
+    | #ban((string, string, string) => unit)
+    | #chat((string, chat_message, string, bool) => unit)
+    | #cheer((string, chat_message, string) => unit)
+    | #clearchat(string => unit)
+    | #connected((string, int) => unit)
+    | #connecting((string, int) => unit)
+    | #disconnected(string => unit)
+    | #emoteonly((string, bool) => unit)
+    | #emotesets((string, Tmi_Emotes.t) => unit)
+    | #followersonly((string, bool, int) => unit)
+    | #giftpaidupgrade((string, string, string, subgift_upgrade) => unit)
+    | #hosted((string, string, int, bool) => unit)
+    | #hosting((string, string, int) => unit)
+    | #join((string, string, bool) => unit)
+    | #logon(unit => unit)
+    | #message((string, chat_message, string, bool) => unit)
+    | #messagedeleted((string, string, string, delete_message) => unit)
+    | #mod((string, string) => unit)
+    | #mods((string, array<string>) => unit)
+    | #notice((string, Tmi_Message.id, string) => unit)
+    | #part((string, string, bool) => unit)
+    | #ping(unit => unit)
+    | #pong(float => unit)
+    | #primepaidupgrade((string, string, Tmi_Subs.methods, prime_upgrade) => unit)
+    | #r9kbeta((string, bool) => unit)
+    | #raided((string, string, int) => unit)
+    | #raw_message((Js.Dict.t<string>, Js.Dict.t<string>) => unit)
+    | #reconnect(unit => unit)
+    | #redeem((string, string, string, chat_message) => unit)
+    | #resub((string, string, int, string, sub_state, Tmi_Subs.methods) => unit)
+    | #roomstate((string, Tmi_Room.state) => unit)
+    | #serverchange(string => unit)
+    | #slowmode((string, bool, int) => unit)
+    | #subgift((string, string, int, string, Tmi_Subs.methods, subgift) => unit)
+    | #submysterygift((string, string, int, Tmi_Subs.methods, sub_mysterygift) => unit)
+    | #subscribers((string, bool) => unit)
+    | #subscription((string, string, Tmi_Subs.methods, string, sub_state) => unit)
+    | #timeout((string, string, string, int) => unit)
+    | #unhost((string, int) => unit)
+    | #unmod((string, string) => unit)
+    | #vips((string, array<string>) => unit)
+    | #whisper((string, chat_message, string, bool) => unit)
   ],
 ) => unit = "on"
 
