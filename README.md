@@ -1,5 +1,7 @@
 # tmi.res
 
+ReScript bindings for the tmi.js library. For more info and documentation, checkout the original project [here](https://github.com/tmijs/tmi.js).
+
 > ⚠️ **DISCLAIMER**: This library is not complete yet. But it has the basic bindings to get a chatbot up and running.
 
 ## Install
