@@ -11,5 +11,6 @@
     }
   ],
   "suffix": ".bs.js",
-  "bs-dependencies": []
+  "bs-dependencies": [],
+  "ppx-flags": []
 }
