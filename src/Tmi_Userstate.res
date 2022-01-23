@@ -55,15 +55,15 @@ type common_giftsub_userstate = {
   "msg-param-recipient-display-name": string,
   "msg-param-recipient-id": string,
   "msg-param-recipient-user-name": string,
-  "msg-param-months": string, // TODO: string | bool
+  "msg-param-months": Tmi_Utils.String_or_boolean.t,
 }
 
 type sub_state = {
   ...common_sub_userstate,
   "message-type": [#sub | #resub],
-  "msg-param-cumulative-months": string, // TODO: string | bool
+  "msg-param-cumulative-months": Tmi_Utils.String_or_boolean.t,
   "msg-param-should-share-streak": bool,
-  "msg-param-streak-months": string, // TODO: string | bool
+  "msg-param-streak-months": Tmi_Utils.String_or_boolean.t,
 }
 
 type chat_message = {
@@ -81,7 +81,7 @@ type subgift = {...common_giftsub_userstate, "message-type": [#subgift]}
 type sub_mysterygift = {
   ...common_sub_userstate,
   "message-type": [#submysterygift],
-  "msg-param-sender-count": bool, // TODO: string | bool
+  "msg-param-sender-count": Tmi_Utils.String_or_boolean.t,
   "msg-param-origin-id": string,
 }
 
