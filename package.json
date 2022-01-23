@@ -1,6 +1,6 @@
 {
   "name": "tmi.res",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "ReScript bindings for tmi.js",
   "license": "MIT",
   "repository": {
