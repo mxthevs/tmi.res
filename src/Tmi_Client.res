@@ -225,13 +225,13 @@ external color: (t, string) => unit = "color"
 @send
 external commercial: (t, string, int) => unit = "commercial"
 
-@send external connect: t => unit = "connect"
+@send external connect: (t, unit) => unit = "connect"
 
 @send
 external deletemessage: (t, string, string) => unit = "deletemessage"
 
 @send
-external disconnect: t => unit = "disconnect"
+external disconnect: (t, unit) => unit = "disconnect"
 
 @send
 external emoteonly: (t, string) => unit = "emoteonly"
@@ -261,7 +261,7 @@ external mods: (t, string) => array<string> = "mods"
 external part: (t, string) => unit = "part"
 
 @send
-external ping: t => unit = "ping"
+external ping: (t, unit) => unit = "ping"
 
 @send
 external r9kbeta: (t, string) => unit = "r9kbeta"
