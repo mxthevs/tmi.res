@@ -31,7 +31,7 @@ let client = createClient(
   ),
 )
 
-client->connect
+client->connect()
 
 let onMessageHandler = (channel, tags, message, self) => {
   if !self && message->Js.String2.toLocaleLowerCase == "!hello" {
