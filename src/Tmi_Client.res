@@ -62,7 +62,69 @@ external makeOptions: (
   unit,
 ) => options = ""
 
+type event = [
+  | #action
+  | #anongiftpaidupgrade
+  | #anonsubmysterygift
+  | #anonsubgift
+  | #automod
+  | #ban
+  | #chat
+  | #cheer
+  | #clearchat
+  | #connected
+  | #connecting
+  | #disconnected
+  | #emoteonly
+  | #emotesets
+  | #followersonly
+  | #giftpaidupgrade
+  | #hosted
+  | #hosting
+  | #join
+  | #logon
+  | #message
+  | #messagedeleted
+  | #mod
+  | #mods
+  | #notice
+  | #part
+  | #ping
+  | #pong
+  | #primepaidupgrade
+  | #r9kbeta
+  | #raided
+  | #raw_message
+  | #reconnect
+  | #redeem
+  | #resub
+  | #roomstate
+  | #serverchange
+  | #slowmode
+  | #subgift
+  | #submysterygift
+  | #subscribers
+  | #subscription
+  | #timeout
+  | #unhost
+  | #unmod
+  | #vips
+  | #whisper
+]
+
 @module("tmi.js") @new external createClient: options => t = "Client"
+
+@send
+external getChannels: (t, unit) => array<string> = "getChannels"
+
+@send
+external getOptions: (t, unit) => options = "getOptions"
+
+@send
+external isMod: (t, string, string) => bool = "isMod"
+
+@send
+external readyState: (t, unit) => [#CONNECTING | #OPEN | #CLOSING | #CLOSED] = "readyState"
 
 open Tmi_Userstate
 
@@ -120,6 +182,33 @@ external on: (
     | #whisper((string, chat_message, string, bool) => unit)
   ],
 ) => unit = "on"
+
+// TODO: verify behaviour of addListener
+// addListener(event: any, listener: any): Client;
+@send
+external addListener: (t, string, @variadic array<string> => unit) => t = "addListener"
+
+// TODO: verify behaviour of removeListener
+// removeListener(event: any, listener: any): Client;
+@send
+external removeListener: (t, string, @variadic array<string> => unit) => t = "removeListener"
+
+@send
+external removeAllListeners: (t, ~event: event=?) => t = "removeAllListeners"
+
+@send
+external setMaxListeners: (t, int) => t = "setMaxListeners"
+
+//TODO: verify behaviour of emits
+// emits(events: Array<keyof Events>, values: any[][]): void; // wish this could work better but either I'm just not smart enough or it's not possible
+
+@send
+external emit: (t, event) => bool = "emit"
+
+@send
+external listenerCount: (t, event) => int = "listenerCount"
+
+// Chat commands
 
 @send
 external action: (t, string, string) => unit = "action"
